@@ -5,7 +5,7 @@
 using namespace std;
 
 int game(int maxNum) {
-    std::srand(int(std::time(0))); //satunnaisluvun alustus
+    srand(int(time(0))); //satunnaisluvun alustus
 
     int satunnaisluku; //muuttuja satunnaisluvulle
     for (int i = 0; i < 5; ++i) {
@@ -16,30 +16,29 @@ int game(int maxNum) {
     int arvaustenMaara = 0;//muuttuja arvausten määrälle
 
     do { //do/while loop jotta ohjelma antaa uusia yrityksiä väärien arvausten jälkeen
-        std::cout << "Arvaa luku 1-" << maxNum << ":" << std::endl; //pyydetään käyttäjää arvaamaan luku
-        std::cin >> arvaus; //luetaan käyttäjän arvaus
+        cout << "Arvaa luku 1-" << maxNum << ":" << endl; //pyydetään käyttäjää arvaamaan luku
+        cin >> arvaus; //luetaan käyttäjän arvaus
         arvaustenMaara++; //arvausten määrä nousee joka arvauksella
 
         if (arvaus < satunnaisluku) { // reagoidaan käyttäjän arvauksiin
-            std::cout << "luku on suurempi" << std::endl;
+            cout << "luku on suurempi" << endl;
         }
         else if (arvaus > satunnaisluku) {
-            std::cout << "luku on pienempi" << std::endl;
+            cout << "luku on pienempi" << endl;
         }
         else {
-            std::cout << "oikea vastaus!" << std::endl;
+            cout << "oikea vastaus!" << endl;
         }
     } while (arvaus != satunnaisluku);
 }
 int main() {
     int maxNum;
 
-    std::cout << "Syota korkein etsittava luku: ";
-    std::cin >> maxNum;
+    cout << "Syota korkein etsittava luku: ";
+    cin >> maxNum;
 
     int arvaustenMaara = game(maxNum);
-
-    game(maxNum); // Kutsutaan funktiota pelin pelaamiseksi
+    cout<< "Arvausten maara: " << arvaustenMaara << endl;
 
     return 0;
 }
